@@ -41,7 +41,7 @@ ostream& operator<<(ostream& out, const Point& p)
 	return out;
 }
 
-istream& operator>>(istream& in, Point  & p)
+istream& operator>>(istream& in, Point& p)
 {
 	cout << "Enter a value for x: ";
 	in >> p.x;
