@@ -2,9 +2,12 @@
 //
 
 #include "pch.h"
+#include "Point.h"
 #include <iostream>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+    cout << "Hello World!\n"; 
 }
