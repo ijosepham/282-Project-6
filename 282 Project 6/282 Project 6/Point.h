@@ -6,25 +6,23 @@
 
 using namespace std;
 
-template < class T >
 class Point
 {
 private:
-	T x;
-	T y;
+	long x;
+	long y;
 public:
 	// constructors
 	Point();
-	Point(T, T);
-
+	Point(long, long);
+	
 	// setters
-	void setX(T);
-	void setY(T);
+	void setX(long);
+	void setY(long);
 	
 	// getters
-	T getX();
-	T getY();
-
+	long getX();
+	long getY();
 	// friends cin/cout
 	friend ostream& operator<<(ostream&, Point&);
 	friend istream& operator>>(istream&, Point&);

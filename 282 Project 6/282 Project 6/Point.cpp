@@ -3,63 +3,54 @@
 
 using namespace std;
 
-template < class T >
-Point <T>::Point()
+Point::Point()
 {
-	x = null;
-	y = null;
+	x = 0;
+	y = 0;
 }
 
-template < class T >
-Point <T>::Point(T newX, T newY)
+Point::Point(long newX, long newY)
 {
 	x = newX;
 	y = newY;
 }
 
-template < class T >
-void Point <T>::setX(T newX)
+void Point::setX(long newX)
 {
 	x = newX;
 }
 
-template < class T >
-void Point <T>::setY(T newY)
+void Point::setY(long newY)
 {
 	y = newY;
 }
 
-template < class T >
-T Point <T>::getX()
+long Point::getX()
 {
 	return x;
 }
 
-template < class T >
-T Point <T>::getY()
+long Point::getY()
 {
 	return y;
 }
 
-template < class T >
-ostream& operator<<(ostream& out, Point <T> & p) 
+ostream& operator<<(ostream& out, Point  & p) 
 {
 	out << "(" << p.x << ", " << p.y << ")";
 	return out;
 }
 
-template < class T >
-istream& operator>>(istream& in, Point <T> & p)
+istream& operator>>(istream& in, Point  & p)
 {
 	cout << "Enter a value for x: ";
-	in << p.x;
+	in >> p.x;
 	cout << endl << "Enter a value for y: ";
-	in << p.y;
+	in >> p.y;
 	return in;
 }
 
-template<class T>
-Point <T>::~Point()
+Point::~Point()
 {
 	// this is a destructor
 }
