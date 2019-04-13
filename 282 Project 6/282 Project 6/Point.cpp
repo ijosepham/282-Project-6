@@ -9,33 +9,33 @@ Point::Point()
 	y = 0;
 }
 
-Point::Point(long newX, long newY)
+Point::Point(double newX, double newY)
 {
 	x = newX;
 	y = newY;
 }
 
-void Point::setX(long newX)
+void Point::setX(double newX)
 {
 	x = newX;
 }
 
-void Point::setY(long newY)
+void Point::setY(double newY)
 {
 	y = newY;
 }
 
-long Point::getX()
+double Point::getX()
 {
 	return x;
 }
 
-long Point::getY()
+double Point::getY()
 {
 	return y;
 }
 
-ostream& operator<<(ostream& out, Point  & p) 
+ostream& operator<<(ostream& out, const Point& p) 
 {
 	out << "(" << p.x << ", " << p.y << ")";
 	return out;
@@ -45,7 +45,7 @@ istream& operator>>(istream& in, Point  & p)
 {
 	cout << "Enter a value for x: ";
 	in >> p.x;
-	cout << endl << "Enter a value for y: ";
+	cout << "Enter a value for y: ";
 	in >> p.y;
 	return in;
 }

@@ -9,22 +9,23 @@ using namespace std;
 class Point
 {
 private:
-	long x;
-	long y;
+	double x;
+	double y;
 public:
 	// constructors
 	Point();
-	Point(long, long);
+	Point(double, double);
 	
 	// setters
-	void setX(long);
-	void setY(long);
+	void setX(double);
+	void setY(double);
 	
 	// getters
-	long getX();
-	long getY();
+	double getX();
+	double getY();
+
 	// friends cin/cout
-	friend ostream& operator<<(ostream&, Point&);
+	friend ostream& operator<<(ostream&, const Point&);
 	friend istream& operator>>(istream&, Point&);
 
 	~Point();
