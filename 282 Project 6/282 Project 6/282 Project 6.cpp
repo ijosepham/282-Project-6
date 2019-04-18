@@ -8,14 +8,16 @@
 
 using namespace std;
 
-bool isParallel(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
+template <class T, class U>
+bool isParallel(Line <T, U> l1, Line <T, U> l2) {
 	if (l1.getSlope() == l2.getSlope()) {
 		return true;
 	}
 	return false;
 }
 
-bool isPerpendicular(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
+template <class T, class U>
+bool isPerpendicular(Line <T, U> l1, Line <T, U> l2) {
 	// the slopes should be opposite and inverse
 	// so 1/2 would be perp to -2/1; 1/2 * (-2/1) = - 1
 	if (l1.getSlope() * l2.getSlope() == -1) {
@@ -24,7 +26,8 @@ bool isPerpendicular(Line<double, double, double, double> l1, Line<double, doubl
 	return false;
 }
 
-bool isIntersecting(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
+template <class T, class U>
+bool isIntersecting(Line <T, U> l1, Line <T, U> l2) {
 	// the only time where two lines arent intersecting is when they're parallel
 	if (isParallel(l1, l2)) {
 		return false;
@@ -32,7 +35,8 @@ bool isIntersecting(Line<double, double, double, double> l1, Line<double, double
 	return true;
 }
 
-Point<double, double> getIntersection(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
+template <class T, class U>
+Point<double, double> getIntersection(Line <T, U> l1, Line <T, U> l2) {
 	double x = 0;
 	double y = 0;
 
@@ -50,11 +54,11 @@ Point<double, double> getIntersection(Line<double, double, double, double> l1, L
 
 int main()
 {
-	Line<double, double, double, double> l1;
+	Line<double, double> l1;
 	cin >> l1;
 	cout << endl << l1 << "\n\n";
 
-	Line<double, double, double, double> l2;
+	Line<double, double> l2;
 	cin >> l2;
 	cout << endl << l2 << "\n\n";
 
