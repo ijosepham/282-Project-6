@@ -4,8 +4,11 @@
 class Line
 {
 private:
-	Point a;
-	Point b;
+	Point p1;
+	Point p2;
+	int a;
+	int b;
+	int c;
 public:
 	// constructors
 	Line();
@@ -13,14 +16,14 @@ public:
 	Line(double, double, double, double);
 
 	// setters
-	void setA(Point);
-	void setB(Point);
-	void setA(double, double);
-	void setB(double, double);
+	void setP1(Point);
+	void setP2(Point);
+	void setP1(double, double);
+	void setP2(double, double);
 
 	// getters
-	Point getA();
-	Point getB();
+	Point getP1();
+	Point getP2();
 
 	// friend cin/cout
 	friend ostream& operator<<(ostream&, const Line&);
