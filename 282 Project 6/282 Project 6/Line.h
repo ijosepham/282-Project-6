@@ -6,9 +6,13 @@ class Line
 private:
 	Point p1;
 	Point p2;
-	int a;
-	int b;
-	int c;
+
+	double a;
+	double b;
+	double c;
+
+	double m;
+	double n;
 public:
 	// constructors
 	Line();
@@ -24,6 +28,10 @@ public:
 	// getters
 	Point getP1();
 	Point getP2();
+	double getSlope();
+	
+	//
+	void solveLine();
 
 	// friend cin/cout
 	friend ostream& operator<<(ostream&, const Line&);
