@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.h"
 
-template < class T, class U >
+template < class T, class U, class V, class W >
 class Line
 {
 private:
@@ -26,7 +26,7 @@ public:
 		p2 = newP2;
 		solveLine();
 	}
-	Line(T x1, U y1, T x2, U y2) {
+	Line(T x1, U y1, V x2, W y2) {
 		p1 = Point(x1, y1);
 		p2 = Point(x2, y2);
 		solveLine();
@@ -45,7 +45,7 @@ public:
 		p1 = Point(x, y);
 		solveLine();
 	}
-	void setP2(T x, U y) {
+	void setP2(V x, W y) {
 		p2 = Point(x, y);
 		solveLine();
 	}
