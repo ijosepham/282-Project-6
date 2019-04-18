@@ -5,8 +5,8 @@ template < class T, class U, class V, class W >
 class Line
 {
 private:
-	Point p1;
-	Point p2;
+	Point <T, U> p1;
+	Point <V, W> p2;
 
 	double a;
 	double b;
@@ -17,44 +17,44 @@ private:
 public:
 	// constructors
 	Line() {
-		p1 = Point();
-		p2 = Point();
+		p1 = Point <T, U> ();
+		p2 = Point <V, W> ();
 		solveLine();
 	}
-	Line(Point newP1, Point newP2) {
+	Line(Point <T, U> newP1, Point <V, W> newP2) {
 		p1 = newP1;
 		p2 = newP2;
 		solveLine();
 	}
 	Line(T x1, U y1, V x2, W y2) {
-		p1 = Point(x1, y1);
-		p2 = Point(x2, y2);
+		p1 = Point <T, U> (x1, y1);
+		p2 = Point <V, W> (x2, y2);
 		solveLine();
 	}
 
 	// setters
-	void setP1(Point newP1) {
+	void setP1(Point <T, U> newP1) {
 		p1 = newP1;
 		solveLine();
 	}
-	void setP2(Point newP2) {
+	void setP2(Point <V, W> newP2) {
 		p2 = newP2;
 		solveLine();
 	}
 	void setP1(T x, U y) {
-		p1 = Point(x, y);
+		p1 = Point <T, U> (x, y);
 		solveLine();
 	}
 	void setP2(V x, W y) {
-		p2 = Point(x, y);
+		p2 = Point <V, W> (x, y);
 		solveLine();
 	}
 
 	// getters
-	Point getP1() {
+	Point <T, U> getP1() {
 		return p1;
 	}
-	Point getP2() {
+	Point <V, W> getP2() {
 		return p2;
 	}
 	double getSlope() {

@@ -40,12 +40,12 @@ public:
 	}
 
 	// friends cin/cout
-	friend ostream& operator<<(ostream& out, const Point& p) {
+	friend ostream& operator<<(ostream& out, const Point <T, U> & p) {
 		out << "(" << p.x << ", " << p.y << ")";
 		return out;
 	}
 
-	friend istream& operator>>(istream& in, Point& p) {
+	friend istream& operator>>(istream& in, Point <T, U> & p) {
 		cout << "Enter a value for x: ";
 		in >> p.x;
 		cout << "Enter a value for y: ";

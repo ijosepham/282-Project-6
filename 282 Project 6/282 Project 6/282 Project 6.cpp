@@ -8,14 +8,14 @@
 
 using namespace std;
 
-bool isParallel(Line l1, Line l2) {
+bool isParallel(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
 	if (l1.getSlope() == l2.getSlope()) {
 		return true;
 	}
 	return false;
 }
 
-bool isPerpendicular(Line l1, Line l2) {
+bool isPerpendicular(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
 	// the slopes should be opposite and inverse
 	// so 1/2 would be perp to -2/1; 1/2 * (-2/1) = - 1
 	if (l1.getSlope() * l2.getSlope() == -1) {
@@ -24,7 +24,7 @@ bool isPerpendicular(Line l1, Line l2) {
 	return false;
 }
 
-bool isIntersecting(Line l1, Line l2) {
+bool isIntersecting(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
 	// the only time where two lines arent intersecting is when they're parallel
 	if (isParallel(l1, l2)) {
 		return false;
@@ -32,7 +32,7 @@ bool isIntersecting(Line l1, Line l2) {
 	return true;
 }
 
-Point getIntersection(Line l1, Line l2) {
+Point<double, double> getIntersection(Line<double, double, double, double> l1, Line<double, double, double, double> l2) {
 	double x = 0;
 	double y = 0;
 
@@ -45,16 +45,16 @@ Point getIntersection(Line l1, Line l2) {
 	// y = mx + b
 	y = l1.getSlope() * x + l1.getYIntersect();
 
-	return Point(x, y);
+	return Point<double, double> (x, y);
 }
 
 int main()
 {
-	Line l1;
+	Line<double, double, double, double> l1;
 	cin >> l1;
 	cout << endl << l1 << "\n\n";
 
-	Line l2;
+	Line<double, double, double, double> l2;
 	cin >> l2;
 	cout << endl << l2 << "\n\n";
 
@@ -71,7 +71,7 @@ int main()
 		}
 
 		// get the point where the two lines interesect
-		Point intersection = getIntersection(l1, l2);
+		Point<double, double> intersection = getIntersection(l1, l2);
 
 		cout << "They intersect at " << intersection << endl;
 	}
