@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.h"
 
-template < class T, class U, class V, class W >
+template <class T, class U, class V, class W>
 class Line
 {
 private:
