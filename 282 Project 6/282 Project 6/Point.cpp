@@ -2,7 +2,7 @@
 #include "Point.h"
 
 using namespace std;
-
+/**
 Point::Point()
 {
 	x = 0;
@@ -54,3 +54,4 @@ Point::~Point()
 {
 	// this is a destructor
 }
+*/

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Line.h"
-
+/**
 
 Line::Line()
 {
@@ -64,6 +64,9 @@ double Line::getSlope() {
 	return m;
 }
 
+double Line::getYIntersect() {
+	return n;
+}
 
 // basically the consturctor for the line
 void Line::solveLine() {
@@ -113,3 +116,4 @@ Line::~Line()
 {
 	// destructor
 }
+*/

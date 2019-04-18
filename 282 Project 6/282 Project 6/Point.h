@@ -6,28 +6,55 @@
 
 using namespace std;
 
+template < class T, class U >
 class Point
 {
 private:
-	double x;
-	double y;
+	T x;
+	U y;
 public:
 	// constructors
-	Point();
-	Point(double, double);
+	Point() {
+		x = NULL;
+		y = NULL;
+	}
+	Point(T newX, U newY) {
+		x = newX;
+		y = newY;
+	}
 	
 	// setters
-	void setX(double);
-	void setY(double);
-	
+	void setX(T newX) {
+		x = newX;
+	}
+	void setY(U newY) {
+		y = newY;
+	}
+
 	// getters
-	double getX();
-	double getY();
+	T getX() {
+		return x;
+	}
+	U getY() {
+		return y;
+	}
 
 	// friends cin/cout
-	friend ostream& operator<<(ostream&, const Point&);
-	friend istream& operator>>(istream&, Point&);
+	friend ostream& operator<<(ostream& out, const Point& p) {
+		out << "(" << p.x << ", " << p.y << ")";
+		return out;
+	}
 
-	~Point();
+	friend istream& operator>>(istream& in, Point& p) {
+		cout << "Enter a value for x: ";
+		in >> p.x;
+		cout << "Enter a value for y: ";
+		in >> p.y;
+		return in;
+	}
+
+	~Point() {
+		// destructor
+	}
 };
 

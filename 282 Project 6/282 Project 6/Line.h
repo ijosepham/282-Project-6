@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 
+template < class T, class U >
 class Line
 {
 private:
@@ -15,28 +16,98 @@ private:
 	double n;
 public:
 	// constructors
-	Line();
-	Line(Point, Point);
-	Line(double, double, double, double);
+	Line() {
+		p1 = Point();
+		p2 = Point();
+		solveLine();
+	}
+	Line(Point newP1, Point newP2) {
+		p1 = newP1;
+		p2 = newP2;
+		solveLine();
+	}
+	Line(T x1, U y1, T x2, U y2) {
+		p1 = Point(x1, y1);
+		p2 = Point(x2, y2);
+		solveLine();
+	}
 
 	// setters
-	void setP1(Point);
-	void setP2(Point);
-	void setP1(double, double);
-	void setP2(double, double);
+	void setP1(Point newP1) {
+		p1 = newP1;
+		solveLine();
+	}
+	void setP2(Point newP2) {
+		p2 = newP2;
+		solveLine();
+	}
+	void setP1(T x, U y) {
+		p1 = Point(x, y);
+		solveLine();
+	}
+	void setP2(T x, U y) {
+		p2 = Point(x, y);
+		solveLine();
+	}
 
 	// getters
-	Point getP1();
-	Point getP2();
-	double getSlope();
+	Point getP1() {
+		return p1;
+	}
+	Point getP2() {
+		return p2;
+	}
+	double getSlope() {
+		return m;
+	}
+	double getYIntersect() {
+		return n;
+	}
 	
 	//
-	void solveLine();
+	void solveLine() {
+		// ax + by = c
+		// a(x1) + b(y1) = c = a(x2) + b(y2)
+		// a(x1 - x2) = b(y2 - y1)
+		// a = (y2 - y1); b = (x1 - x2);
+		a = (p2.getY() - p1.getY());
+		b = (p1.getX() - p2.getX());
+
+		// if a is negative, flip them so a is positive; b can be either +/-
+		if (a < 0) {
+			a = -a;
+			b = -b;
+		}
+		c = a * p1.getX() + b * p1.getY(); // ax + by = c
+
+		// y = mx + n;
+		// m = rise / run  = (y2 - y1) / (x2 - x1)
+		m = (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+		// n = y - mx
+		n = p1.getY() - m * p1.getX();
+	}
 
 	// friend cin/cout
-	friend ostream& operator<<(ostream&, const Line&);
-	friend istream& operator>>(istream&, Line&);
+	friend ostream& operator<<(ostream& out, const Line& line)
+	{
+		out << "Point A: " << line.p1 << endl;
+		out << "Point B: " << line.p2 << endl;
+		out << "Line: " << line.a << "x + " << line.b << "y = " << line.c << endl;
+		out << "Line: " << "y = " << line.m << "x + " << line.n << endl;
+		return out;
+	}
+	friend istream& operator>>(istream& in, Line& line)
+	{
+		cout << "Point A: " << endl;
+		in >> line.p1;
+		cout << endl << "Point B: " << endl;
+		in >> line.p2;
+		line.solveLine();
+		return in;
+	}
 
-	~Line();
+	~Line() {
+		// destructor
+	}
 };
 
