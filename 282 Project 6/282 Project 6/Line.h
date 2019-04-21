@@ -1,12 +1,12 @@
 #pragma once
 #include "Point.h"
 
-template <class T, class U>
+template <class T, class U, class V, class W>
 class Line
 {
 private:
 	Point <T, U> p1;
-	Point <T, U> p2;
+	Point <V, W> p2;
 
 	double a;
 	double b;
@@ -18,17 +18,17 @@ public:
 	// constructors
 	Line() {
 		p1 = Point <T, U> ();
-		p2 = Point <T, U> ();
+		p2 = Point <V, W> ();
 		solveLine();
 	}
-	Line(Point <T, U> newP1, Point <T, U> newP2) {
+	Line(Point <T, U> newP1, Point <V, W> newP2) {
 		p1 = newP1;
 		p2 = newP2;
 		solveLine();
 	}
 	Line(T x1, U y1, V x2, W y2) {
 		p1 = Point <T, U> (x1, y1);
-		p2 = Point <T, U> (x2, y2);
+		p2 = Point <V, W> (x2, y2);
 		solveLine();
 	}
 
@@ -37,7 +37,7 @@ public:
 		p1 = newP1;
 		solveLine();
 	}
-	void setP2(Point <T, U> newP2) {
+	void setP2(Point <V, W> newP2) {
 		p2 = newP2;
 		solveLine();
 	}
@@ -46,15 +46,21 @@ public:
 		solveLine();
 	}
 	void setP2(V x, W y) {
-		p2 = Point <T, U> (x, y);
+		p2 = Point <V, W> (x, y);
 		solveLine();
+	}
+	void setSlope(double slope) {
+		m = slope;
+	}
+	void setYIntersect(double yIntercept) {
+		n = yIntercept;
 	}
 
 	// getters
 	Point <T, U> getP1() {
 		return p1;
 	}
-	Point <T, U> getP2() {
+	Point <V, W> getP2() {
 		return p2;
 	}
 	double getSlope() {
