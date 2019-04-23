@@ -9,6 +9,9 @@
 
 using namespace std;
 
+// description: checks if two lines are paralell
+// preconditions: l1, l2 - lines to compare
+// postcondition:  T/F, if they're parallel or not
 template <class T, class U, class V, class W>
 bool isParallel(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	if (l1.getSlope() == l2.getSlope()) {
@@ -17,6 +20,9 @@ bool isParallel(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	return false;
 }
 
+// description: checks if two lines are perpendicular
+// preconditions: l1, l2 - lines to compare
+// postcondition:  T/F, if they're perpendicular or not
 template <class T, class U, class V, class W>
 bool isPerpendicular(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	// the slopes should be opposite and inverse
@@ -27,6 +33,9 @@ bool isPerpendicular(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	return false;
 }
 
+// description: checks if two lines are intersecting
+// preconditions: l1, l2 - lines to compare
+// postcondition:  T/F, if they're intersecting or not
 template <class T, class U, class V, class W>
 bool isIntersecting(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	// the only time where two lines arent intersecting is when they're parallel
@@ -36,6 +45,9 @@ bool isIntersecting(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	return true;
 }
 
+// description: gets the intersection of two lines
+// preconditions: l1, l2 - lines to compare
+// postcondition: point at which the two lines intesrect
 template <class T, class U, class V, class W>
 Point<double, double> getIntersection(Line <T, U, V, W> l1, Line <T, U, V, W> l2) {
 	double x = 0;
@@ -53,6 +65,8 @@ Point<double, double> getIntersection(Line <T, U, V, W> l1, Line <T, U, V, W> l2
 	return Point<double, double> (x, y);
 }
 
+// description: gets the amount of points the user will be entering
+// postcondition: amount of points the user will enter
 int getAmount() {
 	int amount = 0;
 
@@ -64,6 +78,9 @@ int getAmount() {
 	return amount;
 }
 
+// description: gets an array of points that the user has entered
+// preconditions: amount - amount of points they'll be entering
+// postcondition: returns the array of all the points entered
 Point<double, double>* getPoints(int amount) {
 	// make an array of pointers of the given length
 	Point<double, double>* pointArray = new Point<double, double> [amount];
@@ -80,6 +97,9 @@ Point<double, double>* getPoints(int amount) {
 	return pointArray;
 }
 
+// description: gets the best approximate line through all the points
+// preconditions: array of points, and amount of points entered
+// postcondition: line of best fit
 Line <double, double, double, double> bestApproximate(Point<double, double>* pointArray, int amount) {
 	double x = 0;
 	double y = 0;
@@ -100,16 +120,45 @@ Line <double, double, double, double> bestApproximate(Point<double, double>* poi
 	// b = y - mx
 	double b = (y - m * x) / amount;
 
-	Point <double, double> p1(x, y);
-	Point <double, double> p2(0, b);
-	return Line <double, double, double, double> (p1, p2);
+	return Line <double, double, double, double> (0, b, 1, b + m);
 }
 
 int main()
 {
-	/**
+	// line realtion
+	cout << "Line Relations Tester: " << endl;
+	// y = 1x + 0
+	Line<double, double, double, double> line1(0, 0, 1, 1);
+
+	// y = -x + 0
+	Line<double, double, double, double> line2(-1, 1, 0, 0);
+
+	// y = x + 1
+	Line<double, double, double, double> line3(0, 1, 1, 2);
+
+	// y = 2x + 3;
+	Line<double, double, double, double> line4(0, 3, 1, 5);
+
+	cout << "Line3: " << "\n" << line1 << "\n" <<
+		"Line4: " << "\n" << line2 << "\n" <<
+		"Line5: " << "\n" << line3 << "\n" <<
+		"Line6: " << "\n" << line4 << "\n";
+
+	// if the two lines are parallel
+	if (isParallel(line1, line3)) {
+		cout << "Line1 and Line3 are parallel." << endl;
+	}
+	if (isPerpendicular(line1, line2)) {
+		cout << "Line1 and Line2 are perpendicular." << endl;
+	}
+	if (isIntersecting(line1, line4)) {
+		cout << "Line1 and Line4 are intersecting." << endl;
+		cout << "They intersect at " << getIntersection(line1, line4) << endl;
+	}
+	
+
 	// best approximate line tester
-	cout << "Best Approximate Line Tester: " << endl;
+	cout << endl << "Best Approximate Line Tester: " << endl;
 	int amount = getAmount();
 	Point <double, double>* pointArray = getPoints(amount);
 	Line <double, double, double, double> line = bestApproximate(pointArray, amount);
@@ -117,45 +166,17 @@ int main()
 	
 
 	// insertion operator tester for lines;
-	cout << "Inseriton Tester: " << endl;
+	cout << endl << "Line Inseriton Tester: " << endl;
 	Line<double, double, double, double> l1;
 	cin >> l1;
-	cout << endl << l1 << "\n\n";
+	cout << endl << line << "\n\n";
 
-	Line<double, double, double, double> l2;
-	cin >> l2;
-	cout << endl << l2 << "\n\n";
-	*/
 
-	// line realtion
-	cout << "Line Relations Tester: " << endl;
-	// y = 1x + 0
-	Line<double, double, double, double> l3(0, 0, 1, 1);
+	cout << endl << "Point Inseriton Tester: " << endl;
+	Point<double, double> point;
+	cin >> point;
+	cout << endl << point << "\n\n";
+	
 
-	// y = -x + 0
-	Line<double, double, double, double> l4(-1, 1, 0, 0);
-
-	// y = x + 1
-	Line<double, double, double, double> l5(0, 1, 1, 2);
-
-	// y = 2x + 3;
-	Line<double, double, double, double> l6(0, 3, 1, 5);
-
-	cout << "Line3: " << "\n" << l3 << "\n" << 
-		"Line4: " << "\n" << l4 << "\n" << 
-		"Line5: " << "\n" << l5 << "\n" << 
-		"Line6: " << "\n" << l6 << "\n";
-
-	// if the two lines are parallel
-	if (isParallel(l3, l5)) {
-		cout << "Line3 and Line5 are parallel." << endl;
-	}
-	if (isPerpendicular(l3, l4)) {
-		cout << "Line3 and Line4 are perpendicular." << endl;
-	}
-	if (isIntersecting(l3, l6)) {
-		cout << "Line3 and Line6 are intersecting." << endl;
-		cout << "They intersect at " << getIntersection(l3, l6) << endl;
-	}
-
+	return 0;
 }
