@@ -139,10 +139,10 @@ int main()
 	// y = 2x + 3;
 	Line<double, double, double, double> line4(0, 3, 1, 5);
 
-	cout << "Line3: " << "\n" << line1 << "\n" <<
-		"Line4: " << "\n" << line2 << "\n" <<
-		"Line5: " << "\n" << line3 << "\n" <<
-		"Line6: " << "\n" << line4 << "\n";
+	cout << "Line1: " << "\n" << line1 << "\n" <<
+		"Line2: " << "\n" << line2 << "\n" <<
+		"Line3: " << "\n" << line3 << "\n" <<
+		"Line4: " << "\n" << line4 << "\n";
 
 	// if the two lines are parallel
 	if (isParallel(line1, line3)) {
@@ -158,7 +158,7 @@ int main()
 	
 
 	// best approximate line tester
-	cout << endl << "Best Approximate Line Tester: " << endl;
+	cout << endl << endl << "Best Approximate Line Tester: " << endl;
 	int amount = getAmount();
 	Point <double, double>* pointArray = getPoints(amount);
 	Line <double, double, double, double> line = bestApproximate(pointArray, amount);
@@ -166,16 +166,16 @@ int main()
 	
 
 	// insertion operator tester for lines;
-	cout << endl << "Line Inseriton Tester: " << endl;
+	cout << endl << endl << "Line Inseriton Tester: " << endl;
 	Line<double, double, double, double> l1;
 	cin >> l1;
-	cout << endl << line << "\n\n";
+	cout << endl << line << endl;
 
 
 	cout << endl << "Point Inseriton Tester: " << endl;
 	Point<double, double> point;
 	cin >> point;
-	cout << endl << point << "\n\n";
+	cout << endl << "Point: " << point << "\n\n";
 	
 
 	return 0;
